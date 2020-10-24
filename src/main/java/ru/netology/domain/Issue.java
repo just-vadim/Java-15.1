@@ -1,5 +1,6 @@
 package ru.netology.domain;
 
+import java.util.Date;
 import java.util.Set;
 
 public class Issue {
@@ -8,6 +9,7 @@ public class Issue {
     private String description;
     private boolean isOpen = true;
     private String author;
+    private Date date;
     private Set<String> labels;
     private Set<String> projects;
     private Set<String> milestones;
@@ -78,5 +80,20 @@ public class Issue {
 
     public Set<String> getAssignees() {
         return assignees;
+    }
+
+    @Override
+    public String toString() {
+        return "Issue{" +
+                "id=" + id +
+                ", heading='" + heading + '\'' +
+                ", description='" + description + '\'' +
+                ", isOpen=" + isOpen +
+                ", author='" + author + '\'' +
+                ", labels=" + labels +
+                ", projects=" + projects +
+                ", milestones=" + milestones +
+                ", assignees=" + assignees +
+                '}';
     }
 }
