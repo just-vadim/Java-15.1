@@ -1,22 +1,23 @@
 package ru.netology.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
-public class Issue {
+public class Issue implements Comparable<Issue> {
     private int id;
+    private LocalDate date;
     private String heading;
     private String description;
     private boolean isOpen = true;
     private String author;
-    private Date date;
     private Set<String> labels;
     private Set<String> projects;
     private Set<String> milestones;
     private Set<String> assignees;
 
-    public Issue(int id, String heading, String description, String author, Set<String> labels, Set<String> projects, Set<String> milestones, Set<String> assignees) {
+    public Issue(int id, LocalDate date, String heading, String description, String author, Set<String> labels, Set<String> projects, Set<String> milestones, Set<String> assignees) {
         this.id = id;
+        this.date = date;
         this.heading = heading;
         this.description = description;
         this.author = author;
@@ -32,6 +33,14 @@ public class Issue {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public String getHeading() {
@@ -86,6 +95,7 @@ public class Issue {
     public String toString() {
         return "Issue{" +
                 "id=" + id +
+                ", date='" + date + '\'' +
                 ", heading='" + heading + '\'' +
                 ", description='" + description + '\'' +
                 ", isOpen=" + isOpen +
@@ -95,5 +105,10 @@ public class Issue {
                 ", milestones=" + milestones +
                 ", assignees=" + assignees +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Issue issue) {
+        return getDate().compareTo(issue.getDate());
     }
 }

@@ -1,6 +1,7 @@
 package ru.netology.repository;
 
 import ru.netology.domain.Issue;
+
 import java.util.ArrayList;
 
 public class IssueRepository {
