@@ -8,8 +8,6 @@ import ru.netology.domain.Issue;
 import ru.netology.repository.IssueRepository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,8 +35,8 @@ class SeveralIssuesManagerTest {
     void shouldGetOpened() {
         manager.closeById(2);
         manager.closeById(4);
-        ArrayList<Issue> expected = new ArrayList<>(Arrays.asList(firstIssue, thirdIssue));
-        ArrayList<Issue> actual = manager.getOpened();
+        List<Issue> expected = List.of(firstIssue, thirdIssue);
+        List<Issue> actual = manager.getOpened();
         assertEquals(expected, actual);
     }
 
@@ -46,22 +44,22 @@ class SeveralIssuesManagerTest {
     void shouldGetClosed() {
         manager.closeById(2);
         manager.closeById(4);
-        ArrayList<Issue> expected = new ArrayList<>(Arrays.asList(secondIssue, fourthIssue));
-        ArrayList<Issue> actual = manager.getClosed();
+        List<Issue> expected = List.of(secondIssue, fourthIssue);
+        List<Issue> actual = manager.getClosed();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldGetAll() {
-        ArrayList<Issue> expected = new ArrayList<>(Arrays.asList(firstIssue, secondIssue, thirdIssue, fourthIssue));
-        ArrayList<Issue> actual = manager.getAll();
+        List<Issue> expected = List.of(firstIssue, secondIssue, thirdIssue, fourthIssue);
+        List<Issue> actual = manager.getAll();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldSortByDate() {
-        ArrayList<Issue> expected = new ArrayList<>(Arrays.asList(thirdIssue, firstIssue, secondIssue, fourthIssue));
-        ArrayList<Issue> actual = manager.sortByDate(comparator);
+        List<Issue> expected = List.of(thirdIssue, firstIssue, secondIssue, fourthIssue);
+        List<Issue> actual = manager.sortBy(comparator);
         assertEquals(expected, actual);
     }
 

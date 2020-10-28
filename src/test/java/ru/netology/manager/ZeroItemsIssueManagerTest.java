@@ -7,8 +7,6 @@ import ru.netology.domain.Issue;
 import ru.netology.repository.IssueRepository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,52 +22,52 @@ class ZeroItemsIssueManagerTest {
     @Test
     void shouldAdd() {
         manager.add(firstIssue);
-        ArrayList<Issue> expected = new ArrayList<>(Arrays.asList(firstIssue));
-        ArrayList<Issue> actual = manager.getAll();
+        List<Issue> expected = List.of(firstIssue);
+        List<Issue> actual = manager.getAll();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldNotGetOpened() {
-        ArrayList<Issue> expected = new ArrayList<>();
-        ArrayList<Issue> actual = manager.getOpened();
+        List<Issue> expected = List.of();
+        List<Issue> actual = manager.getOpened();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldNotGetClosed() {
-        ArrayList<Issue> expected = new ArrayList<>();
-        ArrayList<Issue> actual = manager.getClosed();
+        List<Issue> expected = List.of();
+        List<Issue> actual = manager.getClosed();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldNotGetAll() {
-        ArrayList<Issue> expected = new ArrayList<>();
-        ArrayList<Issue> actual = manager.getAll();
+        List<Issue> expected = List.of();
+        List<Issue> actual = manager.getAll();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldNotCloseById() {
         manager.closeById(1);
-        ArrayList<Issue> expected = new ArrayList<>();
-        ArrayList<Issue> actual = manager.getAll();
+        List<Issue> expected = List.of();
+        List<Issue> actual = manager.getAll();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldNotOpenById() {
         manager.openById(1);
-        ArrayList<Issue> expected = new ArrayList<>();
-        ArrayList<Issue> actual = manager.getAll();
+        List<Issue> expected = List.of();
+        List<Issue> actual = manager.getAll();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldNotSortByDate() {
-        ArrayList<Issue> expected = new ArrayList<>();
-        ArrayList<Issue> actual = manager.sortByDate(comparator);
+        List<Issue> expected = List.of();
+        List<Issue> actual = manager.sortBy(comparator);
         assertEquals(expected, actual);
     }
 

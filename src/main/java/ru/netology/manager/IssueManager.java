@@ -20,15 +20,15 @@ public class IssueManager {
         repository.save(item);
     }
 
-    public ArrayList<Issue> getOpened() {
+    public List<Issue> getOpened() {
         return repository.getOpened();
     }
 
-    public ArrayList<Issue> getClosed() {
+    public List<Issue> getClosed() {
         return repository.getCosed();
     }
 
-    public ArrayList<Issue> getAll() {
+    public List<Issue> getAll() {
         return repository.findAll();
     }
 
@@ -40,8 +40,8 @@ public class IssueManager {
         repository.openById(id);
     }
 
-    public ArrayList<Issue> sortByDate(Comparator<Issue> comparator) {
-        ArrayList<Issue> result = new ArrayList<>(getAll());
+    public List<Issue> sortBy(Comparator<Issue> comparator) {
+        List<Issue> result = new ArrayList<>(getAll());
         result.sort(comparator);
         return result;
     }
